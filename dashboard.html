@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Netlify Identity widget removed — not needed for standalone deployment -->
   <style>
   </style>
   <meta name="mobile-web-app-capable" content="yes">
@@ -7521,8 +7521,8 @@
 
   <script>
     // ★ FILL IN YOUR SUPABASE CREDENTIALS (Supabase → Project Settings → API)
-    var SUPABASE_URL = 'https://dolswghzzdbyemcufhap.supabase.co'; // ← replace
-    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRvbHN3Z2h6emRieWVtY3VmaGFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5OTU5MzYsImV4cCI6MjA5MTU3MTkzNn0.c54rTpKD28QcMZPOxVYTYEoRsYMKX3UxPG2yxuMwdoE';           // ← replace
+    var SUPABASE_URL = ''; // Supabase disabled — standalone mode
+    var SUPABASE_ANON_KEY = ''; // Supabase disabled — standalone mode
 
     // ── Apply all pro flags + unlock UI ──
     function _applyProUnlock() {
@@ -7789,7 +7789,7 @@
       }
       try { sessionStorage.removeItem('pefund_intro_seen'); } catch (e) { }
       showToast('Logged out — see you soon!');
-      setTimeout(function () { window.location.href = 'index.html'; }, 1200);
+      setTimeout(function () { window.location.href = 'dashboard.html'; }, 1200);
     }
     function scrollToFeatures() {
       document.getElementById('intro-features-section').scrollIntoView({ behavior: 'smooth' });
@@ -8007,9 +8007,9 @@
     // ── SUPABASE CONFIG ──────────────────────────────────────────────────────────
     // 🔧 SETUP: Replace these with your own free Supabase project credentials.
     // Create a free project at https://supabase.com → Settings → API
-    var SUPABASE_URL = 'https://dolswghzzdbyemcufhap.supabase.co';   // e.g. 'https://xyzxyz.supabase.co'
-    var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRvbHN3Z2h6emRieWVtY3VmaGFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5OTU5MzYsImV4cCI6MjA5MTU3MTkzNn0.c54rTpKD28QcMZPOxVYTYEoRsYMKX3UxPG2yxuMwdoE';   // e.g. 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'
-    var SUPABASE_ENABLED = !!(SUPABASE_URL && SUPABASE_ANON);
+    var SUPABASE_URL = ''; // Supabase disabled — standalone mode
+    var SUPABASE_ANON = ''; // Supabase disabled — standalone mode
+    var SUPABASE_ENABLED = false; // All data stored in localStorage only
 
     // Required Supabase table (run this SQL in your Supabase SQL editor once):
     // CREATE TABLE pefund_users (
@@ -8943,7 +8943,7 @@
       window.doLogout = function () {
         try { sessionStorage.removeItem('ff_user'); } catch (e) { }
         try { localStorage.removeItem('ff_user'); } catch (e) { }
-        window.location.href = 'index.html';
+        window.location.href = 'dashboard.html';
       };
       if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initProfile); }
       else { initProfile(); }
